@@ -1,0 +1,23 @@
+{
+  "name": "mongo-node-mosh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nchathu2014/mongo-node-mosh.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nchathu2014/mongo-node-mosh/issues"
+  },
+  "homepage": "https://github.com/nchathu2014/mongo-node-mosh#readme",
+  "dependencies": {
+    "mongoose": "^5.13.4"
+  }
+}
