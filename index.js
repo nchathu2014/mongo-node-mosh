@@ -41,23 +41,17 @@ async function createCourse() {
 //createCourse();
 
 async function getCourses() {
-
-    // or
-    // and
-
-
     try {
         const courses = await Course
-            .find()
-            .or([{ name: "Mosh" }, { isPublished: true }])
-            .and([{ name: "Mosh" }, { isPublished: true }])
+            .find({ author: /^Nuwan/ })  // 'author' starting with Nuwan
+            .find({ author: /Nuwan$/ }) // 'author' ending with Nuwan
+            .find({ author: /.*Nuwan.*/ }) // including the word 'Nuwan' (Case sensitive)
+            .find({ author: /.*Nuwan.*/i }) // including the word 'Nuwan' (NOT Case sensitive)
             .limit(10)
             .sort({ name: 1 })
             .select({
                 tags: 1,
-
                 name: 1,
-
                 isPublished: 1,
             })
         console.log(courses);
