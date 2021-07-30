@@ -41,9 +41,17 @@ async function createCourse() {
 //createCourse();
 
 async function getCourses() {
+
+    // api/courses?pageSize=10&pageNumber=3
+
+    const pageSize = 10;
+    const pageNumber = 2;
+
+
     try {
         const courses = await Course
-            .count()
+            .skip((pageNumber - 1) * pageSize)
+            .limit(pageSize)
         console.log(courses);
     } catch (error) {
         console.log('Error: ', error);
