@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/nchathu2014/mongo-node-mosh#readme",
   "dependencies": {
-    "mongoose": "^5.13.4"
+    "mongoose": "^5.0.1"
   }
 }
