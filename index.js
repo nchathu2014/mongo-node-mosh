@@ -43,17 +43,7 @@ async function createCourse() {
 async function getCourses() {
     try {
         const courses = await Course
-            .find({ author: /^Nuwan/ })  // 'author' starting with Nuwan
-            .find({ author: /Nuwan$/ }) // 'author' ending with Nuwan
-            .find({ author: /.*Nuwan.*/ }) // including the word 'Nuwan' (Case sensitive)
-            .find({ author: /.*Nuwan.*/i }) // including the word 'Nuwan' (NOT Case sensitive)
-            .limit(10)
-            .sort({ name: 1 })
-            .select({
-                tags: 1,
-                name: 1,
-                isPublished: 1,
-            })
+            .count()
         console.log(courses);
     } catch (error) {
         console.log('Error: ', error);
