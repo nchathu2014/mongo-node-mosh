@@ -40,22 +40,20 @@ async function createCourse() {
 
 //createCourse();
 
-async function getCourses() {
-
-    // api/courses?pageSize=10&pageNumber=3
-
-    const pageSize = 10;
-    const pageNumber = 2;
-
-
+async function gerCourses() {
     try {
-        const courses = await Course
-            .skip((pageNumber - 1) * pageSize)
-            .limit(pageSize)
-        console.log(courses);
+        return await Course
+            .find({ isPublished: true, tags: 'backend' })
+            .sort({ name: 1 })
+            .select({ name: 1, author: 1 })
     } catch (error) {
-        console.log('Error: ', error);
+        console.log('Error: ', error)
     }
 }
 
-getCourses();
+async function displayCourses() {
+    const courses = await gerCourses();
+    console.log(courses);
+}
+
+displayCourses();
