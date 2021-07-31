@@ -60,14 +60,24 @@ async function updateCourse(id) {
 //Update first approach
 
 async function updateFirstApproach(id) {
-    const result = await Course.update({ _id: id }, {
-        $set: {
-            isPublished: true,
-            author: 'I am new user'
-        }
-    })
+    /*  const result = await Course.update({ _id: id }, {
+         $set: {
+             isPublished: true,
+             author: 'I am new user'
+         }
+     }) */
 
-    console.log(result);
+    // update and return the updated document
+    const result_new = await Course.findByIdAndUpdate(id, {
+        $set: {
+            isPublished: false,
+            author: 'Jack and Jill'
+        }
+    }, { new: true })
+
+
+    // console.log(result);
+    console.log(result_new);
 }
 
 updateFirstApproach('5a68fe2142ae6a6482c4c9cb')
